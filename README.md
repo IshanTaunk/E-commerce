@@ -31,7 +31,9 @@ Frontend
 - Product grid layout. 
 - Fixed-size product cards. 
 - Responsive design. 
-- 🔮 Future Improvements. 
+
+🔮 Future Improvements. 
+
 - 🛒 Add to cart functionality. 
 - 🔐 Authentication (JWT). 
 - 💳 Payment integration. 
