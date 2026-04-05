@@ -6,7 +6,8 @@ A full-stack e-commerce application built with a React frontend and a Node.js + 
 
 🚀 Features
 
-🛍️ Browse products. 
+🛍️ Browse products
+
 - 📦 Product listing with images, name, and price. 
 - ⚡ Fast and responsive UI. 
 - 🔄 API integration using a clean service layer. 
@@ -15,25 +16,25 @@ A full-stack e-commerce application built with a React frontend and a Node.js + 
 
 🏗️ Tech Stack
 
-Frontend. 
-React (Vite). 
-TypeScript. 
-Tailwind CSS. 
-TanStack Query (React Query). 
-Backend. 
-Node.js. 
-Express.js. 
-REST API. 
+Frontend
+- React (Vite). 
+- TypeScript. 
+- Tailwind CSS. 
+- TanStack Query (React Query). 
+- Backend. 
+- Node.js. 
+- Express.js. 
+- REST API. 
 
 📸 UI Preview
 
-Product grid layout. 
-Fixed-size product cards. 
-Responsive design. 
-🔮 Future Improvements. 
-🛒 Add to cart functionality. 
-🔐 Authentication (JWT). 
-💳 Payment integration. 
-📄 Product details page. 
-🔎 Search & filtering. 
-⭐ Ratings & reviews. 
+- Product grid layout. 
+- Fixed-size product cards. 
+- Responsive design. 
+- 🔮 Future Improvements. 
+- 🛒 Add to cart functionality. 
+- 🔐 Authentication (JWT). 
+- 💳 Payment integration. 
+- 📄 Product details page. 
+- 🔎 Search & filtering. 
+- ⭐ Ratings & reviews. 
