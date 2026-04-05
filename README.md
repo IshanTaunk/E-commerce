@@ -7,11 +7,11 @@ A full-stack e-commerce application built with a React frontend and a Node.js + 
 🚀 Features
 
 🛍️ Browse products. 
-📦 Product listing with images, name, and price. 
-⚡ Fast and responsive UI. 
-🔄 API integration using a clean service layer. 
-📡 Backend REST APIs with Express. 
-🧠 Scalable folder structure (feature-based). 
+- 📦 Product listing with images, name, and price. 
+- ⚡ Fast and responsive UI. 
+- 🔄 API integration using a clean service layer. 
+- 📡 Backend REST APIs with Express. 
+- 🧠 Scalable folder structure (feature-based). 
 
 🏗️ Tech Stack
 
