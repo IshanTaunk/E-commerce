@@ -17,14 +17,16 @@ A full-stack e-commerce application built with a React frontend and a Node.js + 
 🏗️ Tech Stack
 
 Frontend
-- React (Vite). 
-- TypeScript. 
-- Tailwind CSS. 
-- TanStack Query (React Query). 
-- Backend. 
-- Node.js. 
-- Express.js. 
-- REST API. 
+- React (Vite) 
+- TypeScript
+- Tailwind CSS
+- TanStack Query (React Query)
+
+Backend
+
+- Node.js
+- Express.js 
+- REST API 
 
 📸 UI Preview
 
