@@ -12,7 +12,7 @@ const Home = () => {
     return (
       <div
         key={`product.id`}
-        className="bg-white rounded-2xl shadow-sm hover:shadow-md transition p-3"
+        className="w-[300px] bg-white rounded-2xl shadow-sm hover:shadow-md transition p-3"
       >
         {/* Image container (square) */}
         <div className="w-full aspect-square overflow-hidden rounded-xl bg-gray-100">
