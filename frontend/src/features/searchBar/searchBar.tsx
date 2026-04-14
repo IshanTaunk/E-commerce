@@ -1,5 +1,9 @@
+import ResortDropdown from "../resortDropdown/resortDropdown";
+
 const SearchBar = () => {
-    return <div>SearchBar</div>
+    return <div>
+        <ResortDropdown/>
+    </div>
 };
 
 export default SearchBar;

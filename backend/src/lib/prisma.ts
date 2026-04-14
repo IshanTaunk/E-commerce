@@ -1,8 +1,18 @@
+import "dotenv/config";
+import { PrismaNeon } from "@prisma/adapter-neon";
 import { PrismaClient } from "../../generated/prisma/client";
-import { PrismaPg } from "@prisma/adapter-pg";
+//import { PrismaPg } from "@prisma/adapter-pg";
 
-const prisma = new PrismaClient({
-      adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
+const connectionString = process.env.DATABASE_URL;
+
+if (!connectionString) {
+      throw new Error("DATABASE_URL is missing. Check backend/.env and dotenv loading.");
+}
+
+const adapter = new PrismaNeon({
+      connectionString
 });
+
+const prisma = new PrismaClient({ adapter });
 
 export default prisma;
