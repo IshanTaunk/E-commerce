@@ -9,6 +9,19 @@
   max-width: 1200px;
 }
 
+.booking-bar--status {
+  min-height: 88px;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.booking-bar--error {
+  color: #b91c1c;
+}
+
 .booking-bar__fields {
   display: flex;
   gap: 20px;

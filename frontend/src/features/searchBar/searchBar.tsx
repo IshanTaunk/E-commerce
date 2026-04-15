@@ -5,6 +5,7 @@ import type { Resort } from "../../services/shared/model/Resort";
 import "./searchBar.css";
 import GuestCounter from "../guestCounter/GuestContainer";
 import StayDatePicker from "../stayDatePicker/StayDatePicker";
+import { useHotels } from "../resortDropdown/hooks/useHotels";
 
 interface BookingFormState {
   resort: Resort | null;
@@ -19,6 +20,8 @@ interface BookingFormState {
     selection, no. of nights, no. of adults/children, check-in date and checkout date input.
 **/
 const BookingBar = () => {
+  const { data: hotels = [], isLoading, isError, error } = useHotels();
+
   const [formState, setFormState] = useState<BookingFormState>({
     resort: null,
     nights: 1,
@@ -48,12 +51,24 @@ const BookingBar = () => {
     console.log("Searching with:", formState);
   };
 
+  if (isLoading) {
+    return <div className="booking-bar booking-bar--status">Loading booking form...</div>;
+  }
+
+  if (isError) {
+    return (
+      <div className="booking-bar booking-bar--status booking-bar--error">
+        {error instanceof Error ? error.message : "Failed to load booking form"}
+      </div>
+    );
+  }
+
   return (
     <div className="booking-bar">
       <div className="booking-bar__fields">
         <div className="booking-bar__field">
           <label className="booking-bar__label">Where<span className="booking-bar__required">*</span></label>
-          <ResortDropdown onSelect={handleResortSelect} />
+          <ResortDropdown hotels={hotels} onSelect={handleResortSelect} />
         </div>
 
         <div className="booking-bar__field booking-bar__field--guests">

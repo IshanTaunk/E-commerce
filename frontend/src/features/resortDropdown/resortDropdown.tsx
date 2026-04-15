@@ -1,14 +1,13 @@
 import { useMemo } from "react";
 import Dropdown from "../../components/Dropdown";
 import type { Resort } from "../../services/shared/model/Resort";
-import { useHotels } from "./hooks/useHotels";
 
 interface ResortDropdownProps {
+  hotels: Resort[];
   onSelect?: (resort: Resort) => void;
 }
 
-const ResortDropdown = ({ onSelect }: ResortDropdownProps) => {
-  const { data: hotels = [], isFetching, isError, error, refetch } = useHotels();
+const ResortDropdown = ({ hotels, onSelect }: ResortDropdownProps) => {
 
   const resortDropdownOptions = useMemo(
     () =>
@@ -27,23 +26,12 @@ const ResortDropdown = ({ onSelect }: ResortDropdownProps) => {
     }
   };
 
-  const handleOpen = () => {
-    void refetch();
-  };
-
   return (
     <div>
-      {isFetching && <p>Loading hotels...</p>}
-      {isError && (
-        <p style={{ color: "red" }}>
-          Error: {error instanceof Error ? error.message : "Failed to fetch hotels"}
-        </p>
-      )}
       <Dropdown
         options={resortDropdownOptions}
         placeholder="Where"
         onChange={handleSelect}
-        onOpen={handleOpen}
       />
     </div>
   );

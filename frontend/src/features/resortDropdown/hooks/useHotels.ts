@@ -5,6 +5,6 @@ export function useHotels() {
   return useQuery({
     queryKey: ["hotels"],
     queryFn: getHotels,
-    enabled: false,
+    staleTime: 60_000,
   });
 }
