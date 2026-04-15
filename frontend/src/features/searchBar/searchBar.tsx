@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ResortDropdown from "../resortDropdown/resortDropdown";
 import type { Resort } from "../../services/shared/model/Resort";
+import "./searchBar.css";
+import GuestCounter from "../guestCounter/GuestContainer";
 
 interface BookingFormState {
   resort: Resort | null;
@@ -33,12 +35,56 @@ const BookingBar = () => {
     console.log("Selected resort:", resort);
   };
 
+  const changeCount = (field: "adults" | "children", delta: number) => {
+    setFormState((prev) => {
+      const min = field === "adults" ? 1 : 0;
+      return { ...prev, [field]: Math.max(min, prev[field] + delta) };
+    });
+  };
+
+  const totalGuests = formState.adults + formState.children;
+
+  const handleSearch = () => {
+    console.log("Searching with:", formState);
+  };
+
   return (
-    <div>
-      <ResortDropdown onSelect={handleResortSelect} />
-      {formState.resort && (
-        <p>Selected: {formState.resort.name} in {formState.resort.city}</p>
-      )}
+    <div className="booking-bar">
+      <div className="booking-bar__fields">
+        <div className="booking-bar__field">
+          <label className="booking-bar__label">Where<span className="booking-bar__required">*</span></label>
+          <ResortDropdown onSelect={handleResortSelect} />
+        </div>
+
+        <div className="booking-bar__field booking-bar__field--guests">
+          <label className="booking-bar__label">No. of Guests<span className="booking-bar__required">*</span></label>
+          <div className="booking-bar__guests-display">
+            <span className="booking-bar__guests-icon">👥</span>
+            <span className="booking-bar__guests-text">{totalGuests} guest{totalGuests !== 1 ? "s" : ""}</span>
+          </div>
+          <div className="booking-bar__guests-dropdown">
+            <GuestCounter
+              label="Adults"
+              sublabel="Ages 18 or above"
+              required
+              value={formState.adults}
+              onDecrement={() => changeCount("adults", -1)}
+              onIncrement={() => changeCount("adults", 1)}
+            />
+            <GuestCounter
+              label="Children"
+              sublabel="Ages 0 - 17"
+              value={formState.children}
+              onDecrement={() => changeCount("children", -1)}
+              onIncrement={() => changeCount("children", 1)}
+            />
+          </div>
+        </div>
+      </div>
+
+      <button className="booking-bar__search-btn" onClick={handleSearch}>
+        Search Availability
+      </button>
     </div>
   );
 };

@@ -8,10 +8,10 @@ const Home = () => {
   //if(error) return <div> Failed to load</div>;
 
   return (<>
-  <div>
-    <BookingBar/>
-  </div>
-</>
+    <div>
+      <BookingBar/>
+    </div>
+  </>
   )
 }
 
