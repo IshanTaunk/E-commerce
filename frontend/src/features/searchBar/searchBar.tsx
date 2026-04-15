@@ -1,16 +1,17 @@
 import { useState } from "react";
+import type { DateRange } from "react-day-picker";
 import ResortDropdown from "../resortDropdown/resortDropdown";
 import type { Resort } from "../../services/shared/model/Resort";
 import "./searchBar.css";
 import GuestCounter from "../guestCounter/GuestContainer";
+import StayDatePicker from "../stayDatePicker/StayDatePicker";
 
 interface BookingFormState {
   resort: Resort | null;
   nights: number;
   adults: number;
   children: number;
-  checkInDate: string;
-  checkOutDate: string;
+  dateRange: DateRange | undefined;
 }
 
 /** 
@@ -23,8 +24,7 @@ const BookingBar = () => {
     nights: 1,
     adults: 1,
     children: 0,
-    checkInDate: "",
-    checkOutDate: ""
+    dateRange: undefined,
   });
 
   const handleResortSelect = (resort: Resort) => {
@@ -81,6 +81,13 @@ const BookingBar = () => {
           </div>
         </div>
       </div>
+
+        <div className="booking-bar__field">
+          <StayDatePicker
+            range={formState.dateRange}
+            setRange={(dateRange) => setFormState((prev) => ({ ...prev, dateRange }))}
+          />
+        </div>
 
       <button className="booking-bar__search-btn" onClick={handleSearch}>
         Search Availability
